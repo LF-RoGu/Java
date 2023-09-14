@@ -16,32 +16,75 @@ public class StateMachine
     }
     private e_stateMachine l_currentState = e_stateMachine.IDLE;
     private e_stateMachine l_nextState = e_stateMachine.START;
-    private Map<e_stateMachine, e_stateMachine> stateTransitions = new HashMap<>();
+    private Map<e_stateMachine, e_stateMachine[]> stateTransitions = new HashMap<>();
 
     /* Constructor */
     public StateMachine()
     {
-        stateTransitions.put(e_stateMachine.IDLE, e_stateMachine.START);
+        stateTransitions.put(e_stateMachine.IDLE, new e_stateMachine[]{e_stateMachine.START});
         /* */
-        stateTransitions.put(e_stateMachine.START, e_stateMachine.NAME);
+        stateTransitions.put(e_stateMachine.START, new e_stateMachine[]
+                {
+                    e_stateMachine.NAME,
+                    e_stateMachine.SURNAME,
+                    e_stateMachine.AGE,
+                    e_stateMachine.SPORT,
+                    e_stateMachine.AWARDS,
+                    e_stateMachine.EXIT
+                });
 
         /* State after Name */
-        stateTransitions.put(e_stateMachine.NAME, e_stateMachine.SURNAME);
+        stateTransitions.put(e_stateMachine.NAME, new e_stateMachine[]
+                {
+                        e_stateMachine.SURNAME,
+                        e_stateMachine.AGE,
+                        e_stateMachine.SPORT,
+                        e_stateMachine.AWARDS,
+                        e_stateMachine.EXIT
+                });
 
         /* State after Surname */
-        stateTransitions.put(e_stateMachine.SURNAME, e_stateMachine.NAME);
+        stateTransitions.put(e_stateMachine.SURNAME, new e_stateMachine[]
+                {
+                        e_stateMachine.NAME,
+                        e_stateMachine.AGE,
+                        e_stateMachine.SPORT,
+                        e_stateMachine.AWARDS,
+                        e_stateMachine.EXIT
+                });
 
         /* State after Age */
-        stateTransitions.put(e_stateMachine.AGE, e_stateMachine.NAME);
+        stateTransitions.put(e_stateMachine.AGE, new e_stateMachine[]
+                {
+                        e_stateMachine.NAME,
+                        e_stateMachine.SURNAME,
+                        e_stateMachine.SPORT,
+                        e_stateMachine.AWARDS,
+                        e_stateMachine.EXIT
+                });
 
         /* State after Sport */
-        stateTransitions.put(e_stateMachine.SPORT, e_stateMachine.NAME);
+        stateTransitions.put(e_stateMachine.SPORT, new e_stateMachine[]
+                {
+                        e_stateMachine.NAME,
+                        e_stateMachine.SURNAME,
+                        e_stateMachine.AGE,
+                        e_stateMachine.AWARDS,
+                        e_stateMachine.EXIT
+                });
 
         /* State after Awards */
-        stateTransitions.put(e_stateMachine.AWARDS, e_stateMachine.NAME);
+        stateTransitions.put(e_stateMachine.AWARDS, new e_stateMachine[]
+                {
+                        e_stateMachine.NAME,
+                        e_stateMachine.SURNAME,
+                        e_stateMachine.AGE,
+                        e_stateMachine.SPORT,
+                        e_stateMachine.EXIT
+                });
 
         /* State after Exit */
-        stateTransitions.put(e_stateMachine.EXIT, e_stateMachine.EXIT);
+        stateTransitions.put(e_stateMachine.EXIT, new e_stateMachine[]{e_stateMachine.EXIT});
     }
 
     public e_stateMachine getCurrentState()
