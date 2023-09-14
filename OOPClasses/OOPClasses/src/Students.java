@@ -36,7 +36,15 @@ public class Students
      */
     public void setUserName(String varUserInfo)
     {
-        this.l_varUserName = varUserInfo;
+        if(this.l_varUserName == nuul)
+        {
+            this.l_varUserName = varUserInfo;
+        }
+        else
+        {
+            this.l_varUserName = "Unknown";
+        }
+
     }
     public void setUserId(String varUserInfo)
     {
