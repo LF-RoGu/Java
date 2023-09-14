@@ -14,7 +14,7 @@ public class Main
         {
             System.out.println((getInputFromScanner(l_varCurrentYear)));
         }
-        System.out.println("Hello world!");
+        System.out.println("System date" + java.time.LocalDate.now());
     }
 
     public static String getInputFromConsole(int currentYear)
