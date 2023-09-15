@@ -94,14 +94,19 @@ public class StateMachine
 
     public void stm_NextState(e_stateMachine nextState)
     {
-        if(stateTransitions.containsKey(l_currentState) && stateTransitions.get(l_currentState) == nextState)
+        e_stateMachine[] validStateTransitions = stateTransitions.get(l_currentState);
+        if(validStateTransitions != null)
         {
-            l_currentState = nextState;
-            System.out.println("New current state: " + l_currentState);
+            for(e_stateMachine validState : validStateTransitions)
+            {
+                if(validState == nextState)
+                {
+                    l_currentState = nextState;
+                    System.out.println("New current state: " + l_currentState);
+                    return;
+                }
+            }
         }
-        else
-        {
-            System.out.println("Transition to new state invalid");
-        }
+        System.out.println("Transition to new state invalid");
     }
 }

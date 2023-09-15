@@ -3,8 +3,8 @@ public class Students
     private String l_varUserName;
     private String l_varUserId;
     private String l_varUserProgram;
-    private int l_varUserEnrollmentYear;
-    private int l_varUserAverageScore;
+    private String l_varUserEnrollmentYear;
+    private String l_varUserAverageScore;
 
     /*
     Java example for Getters using classes for private information
@@ -22,11 +22,11 @@ public class Students
     {
         return l_varUserProgram;
     }
-    public int getUserEnrollmentYear()
+    public String getUserEnrollmentYear()
     {
         return l_varUserEnrollmentYear;
     }
-    public int getUserAverageScore()
+    public String getUserAverageScore()
     {
         return l_varUserAverageScore;
     }
@@ -36,7 +36,7 @@ public class Students
      */
     public void setUserName(String varUserInfo)
     {
-        if(this.l_varUserName == nuul)
+        if(this.l_varUserName == null)
         {
             this.l_varUserName = varUserInfo;
         }
@@ -54,11 +54,11 @@ public class Students
     {
         this.l_varUserProgram = varUserInfo;
     }
-    public void setUserEnrollmentYear(int varUserInfo)
+    public void setUserEnrollmentYear(String varUserInfo)
     {
         this.l_varUserEnrollmentYear = varUserInfo;
     }
-    public void setUserAverageScore(int varUserInfo)
+    public void setUserAverageScore(String varUserInfo)
     {
         this.l_varUserAverageScore = varUserInfo;
     }
