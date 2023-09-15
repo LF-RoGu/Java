@@ -106,7 +106,6 @@ public class StateMachine
                 if(validState == nextState)
                 {
                     l_currentState = nextState;
-                    System.out.println("New current state: " + l_currentState);
                     return;
                 }
             }
