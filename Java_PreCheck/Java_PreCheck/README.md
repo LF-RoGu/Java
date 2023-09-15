@@ -31,5 +31,7 @@ The desition to use a state machin was primarly to continue learning java, as th
 
 ## Documentation
 
+![FlowChart](../png/PreCheck-Java.jpg)
+
 [Documentation](https://linktodocumentation)
 
