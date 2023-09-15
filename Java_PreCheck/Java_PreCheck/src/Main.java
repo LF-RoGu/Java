@@ -37,15 +37,6 @@ public class Main
         /* Create N list */
         Participants[] l_classParticipants = new Participants[l_varNumberOfParticipants];
 
-        if(l_varNumberOfParticipants != 0)
-        {
-            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.START);
-        }
-        else
-        {
-            System.out.println("No user to add");
-        }
-
         while(l_varInfiniteCycle)
         {
             if(l_varNumberOfParticipants != 0)
@@ -53,6 +44,15 @@ public class Main
                 switch (l_stateMachine.getCurrentState())
                 {
                     case IDLE:
+                        if(l_varNumberOfParticipants != 0)
+                        {
+                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.START);
+                        }
+                        else
+                        {
+                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.EXIT);
+                            System.out.println("No user to add");
+                        }
                         break;
                     case START:
                         System.out.println("Entered Start State");
