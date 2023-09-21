@@ -15,6 +15,7 @@ public class StateMachine
         CAR_REGISNUM,
         CHECK_INPUT,
         STORE_IN_FILE,
+        FILE_CREATION,
         EXIT
     }
     private e_stateMachine l_currentState = e_stateMachine.IDLE;
@@ -72,6 +73,12 @@ public class StateMachine
         /* State after Awards */
         stateTransitions.put(e_stateMachine.STORE_IN_FILE, new e_stateMachine[]
                 {
+                        e_stateMachine.FILE_CREATION
+                });
+        /* State after Awards */
+        stateTransitions.put(e_stateMachine.FILE_CREATION, new e_stateMachine[]
+                {
+                        e_stateMachine.FILE_CREATION,
                         e_stateMachine.EXIT
                 });
         /* State after Exit */
