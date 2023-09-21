@@ -8,6 +8,16 @@ public class Cars
     private int varCarPrice;
     private int varCarRegistrationNumber;
 
+    private int varCarUseYears;
+
+    public int getVarCarUseYears() {
+        return varCarUseYears;
+    }
+
+    public void setVarCarUseYears(int varCarUseYears) {
+        this.varCarUseYears = varCarUseYears;
+    }
+
     public int getVarCarsId() {
         return varCarsId;
     }

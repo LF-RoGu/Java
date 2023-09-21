@@ -1,6 +1,7 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 /* Import Scanner lib so work can be done in IntelliJ */
+import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
@@ -23,14 +24,14 @@ public class Main {
         boolean l_varInfiniteCycle = true;
         /* Scanner to work in local environment */
         Scanner l_varScanner = new Scanner(System.in);
+        String l_strTempScanner = "";
         int l_varClassCarsLength = 0;
         int l_varClassCarsArrayCounter = 0;
 
         int l_varStoreInFileOption = 0;
         int l_varCreatedFilesCntr = 0;
 
-        /* Counter to keep record of how many files where created */
-        int l_varFileCreatedCounter = 0;
+        int l_varUsedYears = 0;
 
         System.out.println("Number of cars information to register: ...");
         l_varClassCarsLength = Integer.parseInt(l_varScanner.next());
@@ -61,17 +62,23 @@ public class Main {
                 }
                 case CAR_MODEL -> {
                     System.out.print("CAR MODEL -> ");
-                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarModel(l_varScanner.next());
+                    l_strTempScanner = l_varScanner.next();
+                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarModel(l_strTempScanner.toUpperCase());
                     l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_YEAR);
                 }
                 case CAR_YEAR -> {
                     System.out.print("CAR YEAR -> ");
                     l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarYear(Integer.parseInt(l_varScanner.next()));
+
+                    l_varUsedYears = currentYear() - l_classCarsArrayObj[l_varClassCarsArrayCounter].getVarCarYear();
+                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarUseYears(l_varUsedYears);
+
                     l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_COLOR);
                 }
                 case CAR_COLOR -> {
                     System.out.print("CAR COLOR -> ");
-                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarColor(l_varScanner.next());
+                    l_strTempScanner = l_varScanner.next();
+                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarColor(l_strTempScanner.toUpperCase());
                     l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_PRICE);
                 }
                 case CAR_PRICE -> {
@@ -128,10 +135,23 @@ public class Main {
         String l_strSufix = ".txt";
         int l_varCreatedFilesCntr = varCreatedFilesCntr;
         e_fileCreation l_varReturnValue = e_fileCreation.ERROR;
+
+        /* Scanner to work in local environment */
+        Scanner l_varScanner = new Scanner(System.in);
+
+        String l_strModel = "";
+        String l_strYear = "";
+        String l_strUseYears = "";
+        String l_strPrice = "";
+
         try
         {
             switch (opFileCreation) {
                 case 1 -> {
+                    System.out.println("Enter which model to filter...");
+                    l_strModel = l_varScanner.next();
+                    l_strModel = l_strModel.toUpperCase();
+
                     File file2createBrand = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carBrand" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                     if (file2createBrand.createNewFile()) {
                         System.out.println("File created as... " + file2createBrand.getName());
@@ -144,8 +164,28 @@ public class Main {
                             BufferedWriter info = new BufferedWriter(file2writeBrand);
                             while(l_varObjLenght < varObjLenght)
                             {
-                                info.write(strText[l_varObjLenght].getVarCarModel());
-                                info.newLine();
+                                if(Objects.equals(l_strModel, strText[l_varObjLenght].getVarCarModel()))
+                                {
+                                    info.write("-------------------------------------");
+                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarModel());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarColor());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.newLine();
+                                }
+                                else
+                                {
+                                    /*
+                                    Do Nothing
+                                     */
+                                }
                                 l_varObjLenght++;
                             }
                             info.close();
@@ -162,7 +202,9 @@ public class Main {
                     }
                 }
                 case 2 -> {
-                    int l_varUsedYears = 0;
+                    System.out.println("Enter years of use to filter...");
+                    l_strUseYears = l_varScanner.next();
+
                     File file2createUseYears = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carUseYears.txt");
                     if (file2createUseYears.createNewFile()) {
                         System.out.println("File created as... " + file2createUseYears.getName());
@@ -175,9 +217,28 @@ public class Main {
                             BufferedWriter info = new BufferedWriter(file2writeUseYears);
                             while(l_varObjLenght <= varObjLenght)
                             {
-                                l_varUsedYears = currentYear() - Integer.parseInt(strText[l_varObjLenght].getVarCarModel());
-                                info.write(Integer.toString(l_varUsedYears));
-                                info.newLine();
+                                if(Objects.equals(l_strUseYears, Integer.toString(strText[l_varObjLenght].getVarCarUseYears())))
+                                {
+                                    info.write("-------------------------------------");
+                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarModel());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarColor());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.newLine();
+                                }
+                                else
+                                {
+                                    /*
+                                    Do Nothing
+                                     */
+                                }
                                 l_varObjLenght++;
                             }
                             info.close();
@@ -194,6 +255,9 @@ public class Main {
                     }
                 }
                 case 3 -> {
+                    System.out.println("Enter which Year to filter...");
+                    l_strYear = l_varScanner.next();
+
                     File file2createYear = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carYear.txt");
                     if (file2createYear.createNewFile()) {
                         System.out.println("File created as... " + file2createYear.getName());
@@ -206,8 +270,28 @@ public class Main {
                             BufferedWriter info = new BufferedWriter(file2WriteYears);
                             while(l_varObjLenght <= varObjLenght)
                             {
-                                info.write(strText[l_varObjLenght].getVarCarModel());
-                                info.newLine();
+                                if(Objects.equals(l_strYear, Integer.toString(strText[l_varObjLenght].getVarCarYear())))
+                                {
+                                    info.write("-------------------------------------");
+                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarModel());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarColor());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.newLine();
+                                }
+                                else
+                                {
+                                    /*
+                                    Do Nothing
+                                     */
+                                }
                                 l_varObjLenght++;
                             }
                             info.close();
@@ -224,6 +308,9 @@ public class Main {
                     }
                 }
                 case 4 -> {
+                    System.out.println("Enter which Year to filter...");
+                    l_strPrice = l_varScanner.next();
+
                     File file2createPrice = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carPrice.txt");
                     if (file2createPrice.createNewFile()) {
                         System.out.println("File created as... " + file2createPrice.getName());
@@ -236,8 +323,28 @@ public class Main {
                             BufferedWriter info = new BufferedWriter(file2WritePrice);
                             while(l_varObjLenght <= varObjLenght)
                             {
-                                info.write(strText[l_varObjLenght].getVarCarModel());
-                                info.newLine();
+                                if(Objects.equals(l_strPrice, Integer.toString(strText[l_varObjLenght].getVarCarPrice())))
+                                {
+                                    info.write("-------------------------------------");
+                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarModel());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarColor());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.newLine();
+                                }
+                                else
+                                {
+                                    /*
+                                    Do Nothing
+                                     */
+                                }
                                 l_varObjLenght++;
                             }
                             info.close();
