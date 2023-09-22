@@ -121,6 +121,16 @@ public class Main {
                     {
                         l_stateMachine.stm_NextState(StateMachine.e_stateMachine.FILE_CREATION);
                         l_varCreatedFilesCntr++;
+
+                        System.out.println("Create more list files? [Y/N]");
+                        if(Objects.equals(l_varScanner.next(), "y") || Objects.equals(l_varScanner.next(), "Y"))
+                        {
+                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.FILE_CREATION);
+                        }
+                        else
+                        {
+                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.EXIT);
+                        }
                     }
                     else
                     {
@@ -213,14 +223,14 @@ public class Main {
                     System.out.println("Enter years of use to filter...");
                     l_strUseYears = l_varScanner.next();
 
-                    File file2createUseYears = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carUseYears.txt");
+                    File file2createUseYears = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carUseYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                     if (file2createUseYears.createNewFile()) {
                         System.out.println("File created as... " + file2createUseYears.getName());
                         try {
                             /*
                             Open file already created to write expected information
                              */
-                            FileWriter file2writeUseYears = new FileWriter("carUseYears.txt");
+                            FileWriter file2writeUseYears = new FileWriter("carUseYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2writeUseYears);
                             while(l_varObjLenght < varObjLenght)
@@ -269,14 +279,14 @@ public class Main {
                     System.out.println("Enter which Year to filter...");
                     l_strYear = l_varScanner.next();
 
-                    File file2createYear = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carYear.txt");
+                    File file2createYear = new File("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carYear" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                     if (file2createYear.createNewFile()) {
                         System.out.println("File created as... " + file2createYear.getName());
                         try {
                             /*
                             Open file already created to write expected information
                              */
-                            FileWriter file2WriteYears = new FileWriter("carYears.txt");
+                            FileWriter file2WriteYears = new FileWriter("carYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2WriteYears);
                             while(l_varObjLenght < varObjLenght)
