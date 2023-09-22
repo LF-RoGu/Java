@@ -1,7 +1,7 @@
 public class Cars
 {
     private int varCarsId;
-    private int varCarsMake;
+    private String varCarsMake;
     private String varCarModel;
     private int varCarYear;
     private String varCarColor;
@@ -22,7 +22,7 @@ public class Cars
         return varCarsId;
     }
 
-    public int getVarCarsMake() {
+    public String getVarCarsMake() {
         return varCarsMake;
     }
 
@@ -50,7 +50,7 @@ public class Cars
         this.varCarsId = varCarsId;
     }
 
-    public void setVarCarsMake(int varCarsMake) {
+    public void setVarCarsMake(String varCarsMake) {
         this.varCarsMake = varCarsMake;
     }
 

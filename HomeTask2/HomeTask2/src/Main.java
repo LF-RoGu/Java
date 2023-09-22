@@ -52,10 +52,15 @@ public class Main {
             switch (l_stateMachine.getCurrentState()) {
                 case IDLE -> {
                     System.out.println("-------------------------------------");
+                    l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_MAKE);
+                }
+                case CAR_MAKE -> {
+                    l_classCarsArrayObj[l_varClassCarsArrayCounter] = new Cars();
+                    System.out.print("CAR BRAND -> ");
+                    l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarsMake(l_varScanner.next());
                     l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_ID);
                 }
                 case CAR_ID -> {
-                    l_classCarsArrayObj[l_varClassCarsArrayCounter] = new Cars();
                     System.out.print("CAR ID -> ");
                     l_classCarsArrayObj[l_varClassCarsArrayCounter].setVarCarsId(Integer.parseInt(l_varScanner.next()));
                     l_stateMachine.stm_NextState(StateMachine.e_stateMachine.CAR_MODEL);
@@ -164,20 +169,23 @@ public class Main {
                             BufferedWriter info = new BufferedWriter(file2writeBrand);
                             while(l_varObjLenght < varObjLenght)
                             {
-                                if(Objects.equals(l_strModel, strText[l_varObjLenght].getVarCarModel()))
+                                if(Objects.equals(l_strModel, strText[l_varObjLenght].getVarCarsMake()))
                                 {
                                     info.write("-------------------------------------");
-                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarsMake());
+                                    info.newLine();
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarsId()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarModel());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarColor());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarRegistrationNumber()));
                                     info.newLine();
                                 }
                                 else
@@ -220,17 +228,20 @@ public class Main {
                                 if(Objects.equals(l_strUseYears, Integer.toString(strText[l_varObjLenght].getVarCarUseYears())))
                                 {
                                     info.write("-------------------------------------");
-                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarsMake());
+                                    info.newLine();
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarsId()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarModel());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarColor());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarRegistrationNumber()));
                                     info.newLine();
                                 }
                                 else
@@ -273,17 +284,20 @@ public class Main {
                                 if(Objects.equals(l_strYear, Integer.toString(strText[l_varObjLenght].getVarCarYear())))
                                 {
                                     info.write("-------------------------------------");
-                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarsMake());
+                                    info.newLine();
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarsId()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarModel());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarColor());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarRegistrationNumber()));
                                     info.newLine();
                                 }
                                 else
@@ -326,17 +340,20 @@ public class Main {
                                 if(Objects.equals(l_strPrice, Integer.toString(strText[l_varObjLenght].getVarCarPrice())))
                                 {
                                     info.write("-------------------------------------");
-                                    info.write(strText[l_varObjLenght].getVarCarsId());
+                                    info.newLine();
+                                    info.write(strText[l_varObjLenght].getVarCarsMake());
+                                    info.newLine();
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarsId()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarModel());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarYear());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
                                     info.write(strText[l_varObjLenght].getVarCarColor());
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarPrice());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarYear()));
                                     info.newLine();
-                                    info.write(strText[l_varObjLenght].getVarCarRegistrationNumber());
+                                    info.write(Integer.toString(strText[l_varObjLenght].getVarCarRegistrationNumber()));
                                     info.newLine();
                                 }
                                 else

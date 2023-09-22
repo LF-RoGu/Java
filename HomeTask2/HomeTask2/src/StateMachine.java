@@ -6,8 +6,8 @@ public class StateMachine
     public enum e_stateMachine
     {
         IDLE,
-        CAR_ID,
         CAR_MAKE,
+        CAR_ID,
         CAR_MODEL,
         CAR_YEAR,
         CAR_COLOR,
@@ -27,7 +27,11 @@ public class StateMachine
     {
         stateTransitions.put(e_stateMachine.IDLE, new e_stateMachine[]
                 {
-                    e_stateMachine.CAR_ID
+                    e_stateMachine.CAR_MAKE
+                });
+        stateTransitions.put(e_stateMachine.CAR_MAKE, new e_stateMachine[]
+                {
+                        e_stateMachine.CAR_ID
                 });
         /* */
         stateTransitions.put(e_stateMachine.CAR_ID, new e_stateMachine[]
