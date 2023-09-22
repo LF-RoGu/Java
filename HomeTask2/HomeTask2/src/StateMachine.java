@@ -82,6 +82,7 @@ public class StateMachine
         /* State after Awards */
         stateTransitions.put(e_stateMachine.FILE_CREATION, new e_stateMachine[]
                 {
+                        e_stateMachine.STORE_IN_FILE,
                         e_stateMachine.FILE_CREATION,
                         e_stateMachine.EXIT
                 });

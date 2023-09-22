@@ -117,15 +117,20 @@ public class Main {
                 }
                 case FILE_CREATION ->
                 {
-                    if((CreateFile(l_varStoreInFileOption, l_classCarsArrayObj, l_varClassCarsLength, l_varCreatedFilesCntr)) == e_fileCreation.EXISTING)
+                    String l_strRepeateList = "";
+                    e_fileCreation l_createdFileReturnValue = CreateFile(l_varStoreInFileOption, l_classCarsArrayObj, l_varClassCarsLength, l_varCreatedFilesCntr);
+                    if(l_createdFileReturnValue == e_fileCreation.EXISTING)
                     {
                         l_stateMachine.stm_NextState(StateMachine.e_stateMachine.FILE_CREATION);
                         l_varCreatedFilesCntr++;
-
+                    }
+                    else if(l_createdFileReturnValue == e_fileCreation.CREATED)
+                    {
                         System.out.println("Create more list files? [Y/N]");
-                        if(Objects.equals(l_varScanner.next(), "y") || Objects.equals(l_varScanner.next(), "Y"))
+                        l_strRepeateList = l_varScanner.next();
+                        if(Objects.equals(l_strRepeateList, "y") || Objects.equals(l_strRepeateList, "Y"))
                         {
-                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.FILE_CREATION);
+                            l_stateMachine.stm_NextState(StateMachine.e_stateMachine.STORE_IN_FILE);
                         }
                         else
                         {
@@ -230,7 +235,7 @@ public class Main {
                             /*
                             Open file already created to write expected information
                              */
-                            FileWriter file2writeUseYears = new FileWriter("carUseYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
+                            FileWriter file2writeUseYears = new FileWriter("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carUseYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2writeUseYears);
                             while(l_varObjLenght < varObjLenght)
@@ -286,7 +291,7 @@ public class Main {
                             /*
                             Open file already created to write expected information
                              */
-                            FileWriter file2WriteYears = new FileWriter("carYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
+                            FileWriter file2WriteYears = new FileWriter("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carYears" + Integer.toString(l_varCreatedFilesCntr) + l_strSufix);
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2WriteYears);
                             while(l_varObjLenght < varObjLenght)
@@ -320,6 +325,7 @@ public class Main {
                             }
                             info.close();
                             System.out.println("Successfully write in file " + file2createYear.getName());
+                            l_varReturnValue = e_fileCreation.CREATED;
                         }catch (IOException e)
                         {
                             System.out.println("An error ocurred");
@@ -342,7 +348,7 @@ public class Main {
                             /*
                             Open file already created to write expected information
                              */
-                            FileWriter file2WritePrice = new FileWriter("carPrice.txt");
+                            FileWriter file2WritePrice = new FileWriter("E:\\Java_WorkSpace\\Java\\HomeTask2\\HomeTask2\\HomeTaskFiles\\carPrice.txt");
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2WritePrice);
                             while(l_varObjLenght < varObjLenght)
@@ -376,6 +382,7 @@ public class Main {
                             }
                             info.close();
                             System.out.println("Successfully write in file " + file2createPrice.getName());
+                            l_varReturnValue = e_fileCreation.CREATED;
                         }catch (IOException e)
                         {
                             System.out.println("An error ocurred");
