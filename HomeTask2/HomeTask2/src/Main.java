@@ -223,9 +223,9 @@ public class Main {
                             FileWriter file2writeUseYears = new FileWriter("carUseYears.txt");
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2writeUseYears);
-                            while(l_varObjLenght <= varObjLenght)
+                            while(l_varObjLenght < varObjLenght)
                             {
-                                if(Objects.equals(l_strUseYears, Integer.toString(strText[l_varObjLenght].getVarCarUseYears())))
+                                if(Integer.parseInt(l_strUseYears) < strText[l_varObjLenght].getVarCarUseYears())
                                 {
                                     info.write("-------------------------------------");
                                     info.newLine();
@@ -279,7 +279,7 @@ public class Main {
                             FileWriter file2WriteYears = new FileWriter("carYears.txt");
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2WriteYears);
-                            while(l_varObjLenght <= varObjLenght)
+                            while(l_varObjLenght < varObjLenght)
                             {
                                 if(Objects.equals(l_strYear, Integer.toString(strText[l_varObjLenght].getVarCarYear())))
                                 {
@@ -335,7 +335,7 @@ public class Main {
                             FileWriter file2WritePrice = new FileWriter("carPrice.txt");
                             /* Create object buffered so multiple information can be stored */
                             BufferedWriter info = new BufferedWriter(file2WritePrice);
-                            while(l_varObjLenght <= varObjLenght)
+                            while(l_varObjLenght < varObjLenght)
                             {
                                 if(Objects.equals(l_strPrice, Integer.toString(strText[l_varObjLenght].getVarCarPrice())))
                                 {
