@@ -1,17 +1,17 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int nValues = 50;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        outerLoop: // Label for the outer loop
+        for (int i = 2; i <= nValues; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    // If i is divisible by any j, it's not prime, so skip to the next i
+                    continue outerLoop;
+                }
+            }
+            // If we reach this point, i is prime
+            System.out.println(i);
         }
     }
 }
