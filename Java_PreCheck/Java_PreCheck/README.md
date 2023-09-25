@@ -1,6 +1,19 @@
 
 # Java Precheck-task
 
+IDE -> IntelliJ
+
+Run Intructions:
+1.- Open the file location where it is stored.
+2.- Open terminal
+ a) Windows
+   a.1) Write 'CMD' on the file explorer to open the terminal on that exact location
+ b) Linux
+   b.1) Ctrl + T (most common one)
+   b.2) Go to the file location
+3.- Execute the file by using the following command
+   "java 'filename'.java
+
 Develop a java program to insert a list of participants where the fields where name and surname,
 age, type of sport, list of awards.
 
@@ -30,6 +43,8 @@ The desition to use a state machin was primarly to continue learning java, as th
 - FHKennung: lurod001.
 
 ## Documentation
+
+![FlowChart](Java/Java_PreCheck/Java_PreCheck/png/PreCheck-Java.jpg)
 
 [Documentation](https://linktodocumentation)
 
