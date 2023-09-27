@@ -58,9 +58,6 @@ public class Main {
         }
         for(int i = 0; i < l_strBubbleSortText.length; i++)
         {
-            /*
-            4 Spaces are stored, this
-             */
             System.out.println(l_strBubbleSortText[i]);
         }
     }
