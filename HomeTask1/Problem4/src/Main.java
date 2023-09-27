@@ -12,7 +12,6 @@ public class Main {
         String l_strLowerCaseText = l_strText.toLowerCase();
         /* Remove non alphabetic characters */
         l_strLowerCaseText = l_strLowerCaseText.replaceAll(";", " ");
-        l_strLowerCaseText = l_strLowerCaseText.replaceAll(",", " ");
 
         String[] l_strBubbleSortText = l_strLowerCaseText.split(" ");
 
@@ -59,6 +58,9 @@ public class Main {
         }
         for(int i = 0; i < l_strBubbleSortText.length; i++)
         {
+            /*
+            4 Spaces are stored, this
+             */
             System.out.println(l_strBubbleSortText[i]);
         }
     }
