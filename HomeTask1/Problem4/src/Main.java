@@ -8,63 +8,57 @@ public class Main {
                 +" the slings and arrows of outrageous fortune,"
                 +" or to take arms against a sea of troubles,"
                 +" and by opposing end them?";
+        /* Change all characters to lower case */
         String l_strLowerCaseText = l_strText.toLowerCase();
-        /* From problem #3 we know that the number of spaces is 37, then the
-        * total amount of words if exactly numberOfSpaces + 1 */
-        String[] l_strAlphaOrderText = new String[38];
+        /* Remove non alphabetic characters */
+        l_strLowerCaseText = l_strLowerCaseText.replaceAll(";", " ");
+
+        String[] l_strBubbleSortText = l_strLowerCaseText.split(" ");
+
         String l_strTemporalStoreWord = "";
-        String[] l_strMoveStoreWord = new String[27];
         char l_charLetterFromText;
 
-        char l_charLetterTemp1;
-        char l_charLetterTemp2;
-
-        int l_intCounterForPosition = 0;
-        int l_intCheckCounterForExistingWord = 0;
-        int l_intCounterForExistingWord = 0;
-        /* Value for this variable will be FALSE if we are currently in a space */
         boolean l_boolIsWordOrSpace = false;
-        boolean l_boolIsExistingWordInPosition = false;
 
-        outerLoop:
-        for(int i = 0; i < l_strText.length(); i++)
+        fillOuterArrayLoop:
+        /* Move to position i in the array, check in the next for cycle all the posible positions to swap, then move to the next one
+        * Current Selected position of the array*/
+        for(int i = 0; i < (l_strBubbleSortText.length - 1); i++)
         {
-            l_charLetterFromText = l_strLowerCaseText.charAt(i);
-            if(l_charLetterFromText == '`' | (l_charLetterFromText == ','))
+            fillInnerArrayLoop:
+            /* Check Position J to all the array, if this needs to be moved, then move it
+            * Current word that is being compared*/
+            for(int j = 0; j < (l_strBubbleSortText.length - i - 1); j++)
             {
-                continue outerLoop;
-            }
-            else if((l_charLetterFromText == ' '))
-            {
-                l_boolIsWordOrSpace = true;
-            }
-            else
-            {
-                l_boolIsWordOrSpace = false;
-            }
-            if(l_boolIsWordOrSpace)
-            {
-                l_boolIsExistingWordInPosition = false;
-
-                l_intCounterForPosition = ((int)l_strTemporalStoreWord.charAt(0) - 97);
-                if(l_intCounterForPosition < 0)
+                /* A '>0' is being used since method "compareTo" returns intege values
+                * In this case for l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]
+                * a != b returns -1
+                * b != a returns 1
+                * a == a returns 0 */
+                if( (l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]) > 0) )
                 {
-                    l_intCounterForPosition = (int)l_strTemporalStoreWord.charAt(1) - 97;
+                    if(l_strBubbleSortText[j].isEmpty())
+                    {
+                        continue fillOuterArrayLoop;
+                    }
+                    else
+                    {
+                        l_strTemporalStoreWord = l_strBubbleSortText[j];
+                        l_strBubbleSortText[j] = l_strBubbleSortText[j+1];
+                        l_strBubbleSortText[j+1] = l_strTemporalStoreWord;
+                    }
                 }
                 else
                 {
-                        /*
-                        Do Nothing
-                         */
+                    /*
+                    Do Nothing
+                     */
                 }
-
-                l_strAlphaOrderText[l_intCounterForPosition] = l_strTemporalStoreWord;
-                l_strTemporalStoreWord = "";
             }
-            else
-            {
-                l_strTemporalStoreWord += l_charLetterFromText;
-            }
+        }
+        for(int i = 0; i < l_strBubbleSortText.length; i++)
+        {
+            System.out.println(l_strBubbleSortText[i]);
         }
     }
 }
