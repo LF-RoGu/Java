@@ -1,16 +1,11 @@
 
-# Home Task #1
-
-Home Task was done to put to test learned skills, this can go from a input, 
-
-
 ## Problem 1
 ### Variables, Operators, Expressions, Statements, and Blocks 
 Calculate the Volume of a sphere.
 This was one by creating a class, specific to just return the values that where requested in the problem.
 
 * get_varVolumeEarth()
-* get_varVolumeSun()
+*get_varVolumeSun()
 
 This methods return a double value. The units that was done for this where mts. Intead of miles, this to make easier to corroborate with external calculators and make sure that the return value was the correct one.
 
@@ -22,8 +17,11 @@ If the operation module between the 2 values is equal to ZERO. Meaning the value
 Then the current cycle should break, meaning we just abroutly stop current cycle to continue in the next one.
 
 An equivalent explination logic is:
+
 While (flag)
+
 {
+
     for(parameters)
     {
         if(blah blah equals true)
@@ -52,8 +50,10 @@ In the bubble sort method a temporal string was made to store the current word b
 
 This kinda works this way:
 
-a = str[i];
+a = str[i]; 
+
 b[j] = str[j+1];
+
 c[j+1] = a;
 
 
