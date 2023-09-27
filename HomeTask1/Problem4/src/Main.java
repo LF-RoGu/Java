@@ -32,21 +32,18 @@ public class Main {
             {
                 /* A '>0' is being used since method "compareTo" returns intege values
                 * In this case for l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]
-                * a != b returns -1
-                * b != a returns 1
+                * a < b returns -1
+                * a > b returns 1
                 * a == a returns 0 */
                 if( (l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]) > 0) )
                 {
-                    if(l_strBubbleSortText[j].isEmpty())
-                    {
-                        continue fillOuterArrayLoop;
-                    }
-                    else
-                    {
-                        l_strTemporalStoreWord = l_strBubbleSortText[j];
-                        l_strBubbleSortText[j] = l_strBubbleSortText[j+1];
-                        l_strBubbleSortText[j+1] = l_strTemporalStoreWord;
-                    }
+                    l_strTemporalStoreWord = l_strBubbleSortText[j];
+                    l_strBubbleSortText[j] = l_strBubbleSortText[j+1];
+                    l_strBubbleSortText[j+1] = l_strTemporalStoreWord;
+                }
+                else if( (l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]) < 0) )
+                {
+                    continue fillInnerArrayLoop;
                 }
                 else
                 {
