@@ -19,9 +19,7 @@ Then the current cycle should break, meaning we just abroutly stop current cycle
 An equivalent explination logic is:
 
 While (flag)
-
 {
-
     for(parameters)
     {
         if(blah blah equals true)
