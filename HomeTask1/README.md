@@ -24,7 +24,11 @@ Calculate the Volume of a sphere.
 This was one by creating a class, specific to just return the values that where requested in the problem.
 
 * get_varVolumeEarth()
-*get_varVolumeSun()
+* get_varVolumeSun()
+
+Given the diameter of Earth and Sun are the following:
+* Sun -> 865,000 miles
+* Earth -> 7,600 miles
 
 This methods return a double value. The units that was done for this where mts. Intead of miles, this to make easier to corroborate with external calculators and make sure that the return value was the correct one.
 
