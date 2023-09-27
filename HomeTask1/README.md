@@ -1,11 +1,34 @@
 
+# Home Task #1
+
+Home Task was done to put to test learned skills, this can go from a input, 
+
+IDE -> IntelliJ
+
+Run Intructions:
+1.- Open the file location where it is stored.
+2.- Open terminal
+ a) Windows
+   a.1) Write 'CMD' on the file explorer to open the terminal on that exact location
+ b) Linux
+   b.1) Ctrl + T (most common one)
+   b.2) Go to the file location
+3.- Execute the file by using the following command
+   "java Main.java"
+
+
+
 ## Problem 1
 ### Variables, Operators, Expressions, Statements, and Blocks 
 Calculate the Volume of a sphere.
 This was one by creating a class, specific to just return the values that where requested in the problem.
 
 * get_varVolumeEarth()
-*get_varVolumeSun()
+* get_varVolumeSun()
+
+Given the diameter of Earth and Sun are the following:
+* Sun -> 865,000 miles
+* Earth -> 7,600 miles
 
 This methods return a double value. The units that was done for this where mts. Intead of miles, this to make easier to corroborate with external calculators and make sure that the return value was the correct one.
 
@@ -55,3 +78,10 @@ b[j] = str[j+1];
 c[j+1] = a;
 
 
+
+## Authors
+
+- [@LF-RoGu](https://github.com/LF-RoGu)
+- Name: Luis Fernando Rodriguez Gutierrez.
+- Matriculation Number: 7219085.
+- FHKennung: lurod001.
