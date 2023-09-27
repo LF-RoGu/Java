@@ -21,16 +21,33 @@ public class Main {
 
         boolean l_boolIsWordOrSpace = false;
 
-        fillArrayLoop:
+        fillOuterArrayLoop:
+        /* Move to position i in the array, check in the next for cycle all the posible positions to swap, then move to the next one
+        * Current Selected position of the array*/
         for(int i = 0; i < (l_strBubbleSortText.length - 1); i++)
         {
+            fillInnerArrayLoop:
+            /* Check Position J to all the array, if this needs to be moved, then move it
+            * Current word that is being compared*/
             for(int j = 0; j < (l_strBubbleSortText.length - i - 1); j++)
             {
+                /* A '>0' is being used since method "compareTo" returns intege values
+                * In this case for l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]
+                * a != b returns -1
+                * b != a returns 1
+                * a == a returns 0 */
                 if( (l_strBubbleSortText[j].compareTo(l_strBubbleSortText[j+1]) > 0) )
                 {
-                    l_strTemporalStoreWord = l_strBubbleSortText[j];
-                    l_strBubbleSortText[j] = l_strBubbleSortText[j+1];
-                    l_strBubbleSortText[j+1] = l_strTemporalStoreWord;
+                    if(l_strBubbleSortText[j].isEmpty())
+                    {
+                        continue fillOuterArrayLoop;
+                    }
+                    else
+                    {
+                        l_strTemporalStoreWord = l_strBubbleSortText[j];
+                        l_strBubbleSortText[j] = l_strBubbleSortText[j+1];
+                        l_strBubbleSortText[j+1] = l_strTemporalStoreWord;
+                    }
                 }
                 else
                 {
