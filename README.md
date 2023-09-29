@@ -44,18 +44,18 @@ IDE -> IntelliJ
 
 
 ## Subjects to Cover
--[x] Hello World.
--[x] Run a java program through terminal.
--[x] Expression, Statesments & basic stuff.
--[x] Classes.
--[x] Methods.
--[x] Method overloading.
--[x] Constructors.
--[x] Control Flow.
--[x] Inheritance.
--[] Polymorphism.
--[] Interfaces.
--[] Streams.
+- [x] Hello World.
+- [x] Run a java program through terminal.
+- [x] Expression, Statesments & basic stuff.
+- [x] Classes.
+- [x] Methods.
+- [x] Method overloading.
+- [x] Constructors.
+- [x] Control Flow.
+- [x] Inheritance.
+- [ ] Polymorphism.
+- [ ] Interfaces.
+- [ ] Streams.
 
 
 
