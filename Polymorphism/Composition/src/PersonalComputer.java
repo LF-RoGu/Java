@@ -12,6 +12,17 @@ public class PersonalComputer extends Product {
         this.l_classGPU = l_classGPU;
     }
 
+    private void drawPersonalLogo()
+    {
+        l_classMonitor.drawPixel(100,100, "RED");
+    }
+
+    public void powerUp()
+    {
+        l_classComputerCase.pressPowerSupply();
+        drawPersonalLogo();
+    }
+
     public Monitor get_classMonitor() {
         return this.l_classMonitor;
     }
