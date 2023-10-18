@@ -3,7 +3,7 @@ package Vehicle;
 import Vehicle.EngineType.Engine;
 import Vehicle.VehicleType.VehicleType;
 
-public class Manufacture
+public class Manufacturer
 {
     /*
     All vehicles must have this type of information
@@ -25,13 +25,14 @@ public class Manufacture
     private int l_intCarRegistrationNumber;
     private int l_intCarUseYears;
 
-    public Manufacture() {
+    public Manufacturer()
+    {
     }
 
     /*
     Constructor
      */
-    public Manufacture(int l_intCarsId, String l_strCarBrand, String l_strCarModel, int l_intCarYear, String l_strCarColor, int l_intCarPrice, int l_intCarRegistrationNumber, int l_intCarUseYears) {
+    public Manufacturer(int l_intCarsId, String l_strCarBrand, String l_strCarModel, int l_intCarYear, String l_strCarColor, int l_intCarPrice, int l_intCarRegistrationNumber, int l_intCarUseYears) {
         this.l_intCarsId = l_intCarsId;
         this.l_strCarBrand = l_strCarBrand;
         this.l_strCarModel = l_strCarModel;

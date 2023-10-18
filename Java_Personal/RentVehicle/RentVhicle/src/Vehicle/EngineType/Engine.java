@@ -28,8 +28,8 @@ class ElectricEngine extends Engine
     private boolean l_boolGenerator;
     private boolean l_boolConverter;
 
-    public ElectricEngine(int l_intEngineRPM, int l_intEngineTorque, enumCombustion l_enumCombustion, int l_intBatteryLife, boolean l_boolGenerator, boolean l_boolConverter) {
-        super(l_intEngineRPM, l_intEngineTorque, l_enumCombustion);
+    public ElectricEngine(int l_intEngineRPM, int l_intEngineTorque, int l_intBatteryLife, boolean l_boolGenerator, boolean l_boolConverter) {
+        super(l_intEngineRPM, l_intEngineTorque);
         this.l_intBatteryLife = l_intBatteryLife;
         this.l_boolGenerator = l_boolGenerator;
         this.l_boolConverter = l_boolConverter;
