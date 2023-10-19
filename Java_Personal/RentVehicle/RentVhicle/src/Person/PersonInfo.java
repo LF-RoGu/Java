@@ -3,6 +3,7 @@ package Person;
 import License.LicenseInfo;
 import Person.StorePersonal.Clerk;
 import Person.StorePersonal.Manager;
+import Person.StorePersonal.enumPersonalRole;
 
 public class PersonInfo
 {
@@ -81,12 +82,12 @@ class StorePersonalInfo extends  PersonInfo implements Manager, Clerk
     @Override
     public void Clerk()
     {
-
+        enumPersonalRole l_enumPersonalRole = enumPersonalRole.Clerk;
     }
     @Override
     public void Manager()
     {
-
+        enumPersonalRole l_enumPersonalRole = enumPersonalRole.Manager;
     }
 }
 
