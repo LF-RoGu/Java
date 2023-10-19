@@ -1,15 +1,21 @@
 package Person;
 
+import License.LicenseInfo;
+import Person.StorePersonal.Clerk;
+import Person.StorePersonal.Manager;
+
 public class PersonInfo
 {
-    private String l_stringFirstName;
-    private String l_stringLastName;
-    private int l_intAge;
+    protected String l_stringFirstName;
+    protected String l_stringLastName;
+    protected int l_intAge;
+    protected String l_stringNationality;
 
-    public PersonInfo(String l_stringFirstName, String l_stringLastName, int l_intAge) {
+    public PersonInfo(String l_stringFirstName, String l_stringLastName, int l_intAge, String l_stringNationality) {
         this.l_stringFirstName = l_stringFirstName;
         this.l_stringLastName = l_stringLastName;
         this.l_intAge = l_intAge;
+        this.l_stringNationality = l_stringNationality;
     }
 
     public String get_stringFirstName() {
@@ -24,6 +30,10 @@ public class PersonInfo
         return l_intAge;
     }
 
+    public String get_stringNationality() {
+        return l_stringNationality;
+    }
+
     public void set_stringFirstName(String l_stringFirstName) {
         this.l_stringFirstName = l_stringFirstName;
     }
@@ -35,15 +45,19 @@ public class PersonInfo
     public void set_intAge(int l_intAge) {
         this.l_intAge = l_intAge;
     }
+
+    public void set_stringNationality(String l_stringNationality) {
+        this.l_stringNationality = l_stringNationality;
+    }
 }
 
-class StorePersonalInfo extends  PersonInfo
+class StorePersonalInfo extends  PersonInfo implements Manager, Clerk
 {
     private int l_intEmployeeId;
     private double l_doubleEmployeeSalary;
 
-    public StorePersonalInfo(String l_stringFirstName, String l_stringLastName, int l_intAge, int l_intEmployeeId, double l_doubleEmployeeSalary) {
-        super(l_stringFirstName, l_stringLastName, l_intAge);
+    public StorePersonalInfo(String l_stringFirstName, String l_stringLastName, int l_intAge, String l_stringNationality, int l_intEmployeeId, double l_doubleEmployeeSalary) {
+        super(l_stringFirstName, l_stringLastName, l_intAge, l_stringNationality);
         this.l_intEmployeeId = l_intEmployeeId;
         this.l_doubleEmployeeSalary = l_doubleEmployeeSalary;
     }
@@ -63,6 +77,17 @@ class StorePersonalInfo extends  PersonInfo
     public void set_doubleEmployeeSalary(double l_doubleEmployeeSalary) {
         this.l_doubleEmployeeSalary = l_doubleEmployeeSalary;
     }
+
+    @Override
+    public void Clerk()
+    {
+
+    }
+    @Override
+    public void Manager()
+    {
+
+    }
 }
 
 class ClientInfo extends PersonInfo
@@ -70,8 +95,8 @@ class ClientInfo extends PersonInfo
     private String l_stringEmail;
     private int l_intPhoneNumber;
 
-    public ClientInfo(String l_stringFirstName, String l_stringLastName, int l_intAge, String l_stringEmail, int l_intPhoneNumber) {
-        super(l_stringFirstName, l_stringLastName, l_intAge);
+    public ClientInfo(String l_stringFirstName, String l_stringLastName, int l_intAge, String l_stringNationality, String l_stringEmail, int l_intPhoneNumber) {
+        super(l_stringFirstName, l_stringLastName, l_intAge, l_stringNationality);
         this.l_stringEmail = l_stringEmail;
         this.l_intPhoneNumber = l_intPhoneNumber;
     }

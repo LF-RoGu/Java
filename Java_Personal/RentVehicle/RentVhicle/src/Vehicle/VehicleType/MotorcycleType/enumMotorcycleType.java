@@ -1,4 +1,4 @@
-package Vehicle.VehicleType;
+package Vehicle.VehicleType.MotorcycleType;
 
 public enum enumMotorcycleType
 {

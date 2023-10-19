@@ -1,4 +1,6 @@
 package Person.StorePersonal;
 
-public interface Clerk {
+public interface Clerk
+{
+    void Clerk();
 }

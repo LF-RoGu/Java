@@ -1,4 +1,6 @@
 package Person.StorePersonal;
 
-public interface Manager {
+public interface Manager
+{
+    void Manager();
 }

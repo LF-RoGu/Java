@@ -3,11 +3,13 @@ package Vehicle.VehicleType;
 import Vehicle.VehicleType.CarType.Convertible;
 import Vehicle.VehicleType.CarType.Hatchback;
 import Vehicle.VehicleType.CarType.Sedan;
+import Vehicle.VehicleType.CarType.enumCarType;
 import Vehicle.VehicleType.MotorcycleType.FourWheeler;
 import Vehicle.VehicleType.MotorcycleType.ThreeWheeler;
 import Vehicle.VehicleType.MotorcycleType.TwoWheeler;
 import Vehicle.VehicleType.TruckType.Pickup;
 import Vehicle.VehicleType.TruckType.Van;
+import Vehicle.VehicleType.TruckType.enumTruckType;
 
 public class VehicleType
 {
