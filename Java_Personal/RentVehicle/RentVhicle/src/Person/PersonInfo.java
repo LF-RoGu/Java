@@ -79,11 +79,26 @@ class StorePersonalInfo extends  PersonInfo implements Manager, Clerk
         this.l_doubleEmployeeSalary = l_doubleEmployeeSalary;
     }
 
+    /*
+    Clerk can validate if information from License is valid
+     */
     @Override
-    public void Clerk()
+    public void Clerk(LicenseInfo l_LicenseInfo)
     {
         enumPersonalRole l_enumPersonalRole = enumPersonalRole.Clerk;
+
+        if(l_LicenseInfo.get_intLicenseID() > 0)
+        {
+            System.out.println("License ID is... VALID");
+        }
+        else
+        {
+            System.out.println("License ID is... INVALID");
+        }
     }
+    /*
+    Manager has not been decided yet
+     */
     @Override
     public void Manager()
     {
