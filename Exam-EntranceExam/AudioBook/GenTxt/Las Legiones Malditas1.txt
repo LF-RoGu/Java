@@ -1,0 +1,6 @@
+-------------------------------------
+-> Book Title... Las Legiones Malditas
+-> Book Author... Santiago Posteguillo
+-> Book Number of pages...  855
+-> AudioBook Actor... Carlos Bardem
+-> AudioBook Duration... 506
